@@ -85,7 +85,7 @@ class _CalculatorState extends State<Calculator> {
                       Button1(label: '1', txColor: Colors.white,),
                       Button1(label: '2', txColor: Colors.white,),
                       Button1(label: '3', txColor: Colors.white,),
-                      Button1(label: '--', txColor: Colors.lightBlue,),
+                      Button1(label: '-', txColor: Colors.lightBlue,),
                     ],
                   ),
 
