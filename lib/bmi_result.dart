@@ -40,7 +40,7 @@ class BMIResult extends StatelessWidget {
                           fontSize: 30,
                           fontWeight: FontWeight.w600,
                           color: bgColorResult,
-                          letterSpacing: 1.4),),
+                        ),),
 
                       const SizedBox(
                         height: 15,
