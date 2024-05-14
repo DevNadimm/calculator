@@ -31,7 +31,7 @@ class _BMICalculatorState extends State<BMICalculator> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const Calculator()));

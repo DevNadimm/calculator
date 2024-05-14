@@ -17,7 +17,8 @@ class BMIResult extends StatelessWidget {
             fontSize: 24,
             fontWeight: FontWeight.w600,
             color: Colors.white,
-            letterSpacing: 1.4),)
+            letterSpacing: 1.4
+        ),)
       ),
 
       body: Padding(

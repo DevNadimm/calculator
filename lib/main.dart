@@ -1,4 +1,5 @@
 import 'package:calculator/bmi_calculator.dart';
+import 'package:calculator/calculator.dart';
 import 'package:flutter/material.dart';
 
 
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
             .copyWith(background: const Color(0xff0A0E21)),
       ),
-      home: const BMICalculator(),
+      home: const Calculator(),
     );
   }
 }
