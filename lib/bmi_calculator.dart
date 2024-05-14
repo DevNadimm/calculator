@@ -51,185 +51,191 @@ class _BMICalculatorState extends State<BMICalculator> {
         ),
 
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(40),
-        child: Column(
-          children: [
-            //Male Female Parent Box
-            SizedBox(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height * 0.24,
-              child: Row(
-                children: [
-                  GestureDetector(
-                    onTap: _femaleButtonOnTap,
-                    child: Container(
-                      height: MediaQuery.sizeOf(context).height * 0.24,
-                      width: MediaQuery.sizeOf(context).width * 0.36,
-                      decoration: BoxDecoration(
-                        color: femaleContainerColor,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.female,
-                              size: 75,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              'FEMALE',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 25,
-                                  color: Colors.white,
-                                  letterSpacing: 1.2),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(40),
+          child: Column(
+            children: [
 
-                  const Flexible(fit: FlexFit.tight, child: SizedBox()),
-                  GestureDetector(
-                    onTap: _maleButtonOnTap,
-                    child: Container(
-                      height: MediaQuery.sizeOf(context).height * 0.24,
-                      width: MediaQuery.sizeOf(context).width * 0.36,
-                      decoration: BoxDecoration(
-                        color: maleContainerColor,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.male,
-                              size: 75,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              'MALE',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 25,
-                                  color: Colors.white,
-                                  letterSpacing: 1.2),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-
-            const SizedBox(
-              height: 30,
-            ),
-
-            TextField(
-                controller: ftController,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  label: Text(
-                    'Feet',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  hintText: 'Enter your height (Feet)',
-                  hintStyle: TextStyle(
-                    fontSize: 17,
-                    color: Color(0xff746d8a),
-                  ),
-                  prefixIcon: Icon(Icons.height),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 1, color: Color(0xff746d8a))),
-                )
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-
-            TextField(
-                controller: inController,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  label: Text(
-                    'Inches',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  hintText: 'Enter your height (Inches)',
-                  hintStyle: TextStyle(
-                    fontSize: 17,
-                    color: Color(0xff746d8a),
-                  ),
-                  prefixIcon: Icon(Icons.height),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 1, color: Color(0xff746d8a))),
-                )
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-
-            TextField(
-                controller: wtController,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  label: Text(
-                    'Weight',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  hintText: 'Enter your weight (KG)',
-                  hintStyle: TextStyle(
-                    fontSize: 17,
-                    color: Color(0xff746d8a),
-                  ),
-                  prefixIcon: Icon(Icons.monitor_weight),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 1, color: Color(0xff746d8a))),
-                )
-            ),
-
-            const Spacer(),
-
-            GestureDetector(
-              onTap: _calculateOnTap,
-              child: Container(
+              //Male Female Parent Box
+              SizedBox(
                 width: MediaQuery.sizeOf(context).width,
-                height: 60,
-                decoration: BoxDecoration(
-                    color: const Color(0xff1A1F38),
-                    borderRadius: BorderRadius.circular(20)),
-                child: const Center(
-                  child: Text(
-                    'CALCULATE',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 25,
-                        letterSpacing: 0.6),
+                height: MediaQuery.sizeOf(context).height * 0.24,
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: _femaleButtonOnTap,
+                      child: Container(
+                        height: MediaQuery.sizeOf(context).height * 0.24,
+                        width: MediaQuery.sizeOf(context).width * 0.36,
+                        decoration: BoxDecoration(
+                          color: femaleContainerColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.female,
+                                size: 75,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'FEMALE',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 25,
+                                    color: Colors.white,
+                                    letterSpacing: 1.2),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    const Spacer(),
+
+                    GestureDetector(
+                      onTap: _maleButtonOnTap,
+                      child: Container(
+                        height: MediaQuery.sizeOf(context).height * 0.24,
+                        width: MediaQuery.sizeOf(context).width * 0.36,
+                        decoration: BoxDecoration(
+                          color: maleContainerColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.male,
+                                size: 75,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'MALE',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 25,
+                                    color: Colors.white,
+                                    letterSpacing: 1.2),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
+              const SizedBox(
+                height: 30,
+              ),
+        
+              TextField(
+                  controller: ftController,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    label: Text(
+                      'Feet',
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                    hintText: 'Enter your height (Feet)',
+                    hintStyle: TextStyle(
+                      fontSize: 17,
+                      color: Color(0xff746d8a),
+                    ),
+                    prefixIcon: Icon(Icons.height),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xff746d8a))),
+                  )
+              ),
+        
+              const SizedBox(
+                height: 10,
+              ),
+        
+              TextField(
+                  controller: inController,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    label: Text(
+                      'Inches',
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                    hintText: 'Enter your height (Inches)',
+                    hintStyle: TextStyle(
+                      fontSize: 17,
+                      color: Color(0xff746d8a),
+                    ),
+                    prefixIcon: Icon(Icons.height),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xff746d8a))),
+                  )
+              ),
+        
+              const SizedBox(
+                height: 10,
+              ),
+        
+              TextField(
+                  controller: wtController,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    label: Text(
+                      'Weight',
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                    hintText: 'Enter your weight (KG)',
+                    hintStyle: TextStyle(
+                      fontSize: 17,
+                      color: Color(0xff746d8a),
+                    ),
+                    prefixIcon: Icon(Icons.monitor_weight),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 1, color: Color(0xff746d8a))),
+                  )
+              ),
+        
+              const SizedBox(
+                height: 30,
+              ),
+        
+              GestureDetector(
+                onTap: _calculateOnTap,
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff1A1F38),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: const Center(
+                    child: Text(
+                      'CALCULATE',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 25,
+                          letterSpacing: 0.6),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
