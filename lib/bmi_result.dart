@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class BMIResult extends StatelessWidget {
-  String bmiResult;
-  Color bgColorResult;
-  String bmiMessageResult;
-  BMIResult({super.key ,required this.bmiResult, required this.bgColorResult, required this.bmiMessageResult});
+  final String bmiResult;
+  final Color bgColorResult;
+  final String bmiMessageResult;
+  const BMIResult({super.key ,required this.bmiResult, required this.bgColorResult, required this.bmiMessageResult});
 
   @override
   Widget build(BuildContext context) {
