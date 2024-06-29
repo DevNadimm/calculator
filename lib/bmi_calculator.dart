@@ -1,4 +1,5 @@
 import 'package:calculator/bmi_result.dart';
+import 'package:calculator/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'calculator.dart';
@@ -11,35 +12,38 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
-
   var ftController = TextEditingController();
   var inController = TextEditingController();
   var wtController = TextEditingController();
-  var result = '' ;
-  var bgColor = const Color(0xffffffff);
-  var bmiMessage = '' ;
-  var femaleContainerColor = const Color(0xff1A1F38);
-  var maleContainerColor = const Color(0xff1A1F38);
+  var result = '';
 
+  var bgColor = const Color(0xffffffff);
+  var bmiMessage = '';
+
+  var femaleContainerColor = appBarColor;
+  var maleContainerColor = appBarColor;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        backgroundColor: const Color(0xff1A1F38),
+        backgroundColor: appBarColor,
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Calculator()));
-              },
-              icon: const Icon(
-                Icons.calculate_outlined,
-                color: Colors.white,
-              ))
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Calculator(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.calculate_outlined,
+              color: Colors.white,
+            ),
+          )
         ],
         title: const Text(
           'BMI Calculator',
@@ -49,14 +53,12 @@ class _BMICalculatorState extends State<BMICalculator> {
               color: Colors.white,
               letterSpacing: 1.4),
         ),
-
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(40),
           child: Column(
             children: [
-
               //Male Female Parent Box
               SizedBox(
                 width: MediaQuery.sizeOf(context).width,
@@ -94,9 +96,7 @@ class _BMICalculatorState extends State<BMICalculator> {
                         ),
                       ),
                     ),
-
                     const Spacer(),
-
                     GestureDetector(
                       onTap: _maleButtonOnTap,
                       child: Container(
@@ -135,93 +135,121 @@ class _BMICalculatorState extends State<BMICalculator> {
               const SizedBox(
                 height: 30,
               ),
-        
+
               TextField(
-                  controller: ftController,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    label: Text(
-                      'Feet',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    hintText: 'Enter your height (Feet)',
-                    hintStyle: TextStyle(
-                      fontSize: 17,
+                controller: ftController,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  fontSize: 17,
+                ),
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  label: const Text(
+                    'Feet',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                  hintText: 'Enter your height (Feet)',
+                  hintStyle: TextStyle(
+                    fontSize: 17,
+                    color: buttonTwoColor,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.height,
+                    color: buttonTwoColor,
+                  ),
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 1,
                       color: Color(0xff746d8a),
                     ),
-                    prefixIcon: Icon(Icons.height),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xff746d8a))),
-                  )
+                  ),
+                ),
               ),
-        
+
               const SizedBox(
                 height: 10,
               ),
-        
+
               TextField(
-                  controller: inController,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    label: Text(
-                      'Inches',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    hintText: 'Enter your height (Inches)',
-                    hintStyle: TextStyle(
-                      fontSize: 17,
+                controller: inController,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  fontSize: 17,
+                ),
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  label: const Text(
+                    'Inches',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                  hintText: 'Enter your height (Inches)',
+                  hintStyle: TextStyle(
+                    fontSize: 17,
+                    color: buttonTwoColor,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.height,
+                    color: buttonTwoColor,
+                  ),
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 1,
                       color: Color(0xff746d8a),
                     ),
-                    prefixIcon: Icon(Icons.height),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xff746d8a))),
-                  )
+                  ),
+                ),
               ),
-        
+
               const SizedBox(
                 height: 10,
               ),
-        
+
               TextField(
-                  controller: wtController,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600, color: Colors.white,fontSize: 17,),
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    label: Text(
-                      'Weight',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    hintText: 'Enter your weight (KG)',
-                    hintStyle: TextStyle(
-                      fontSize: 17,
+                controller: wtController,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  fontSize: 17,
+                ),
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  label: const Text(
+                    'Weight',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                  hintText: 'Enter your weight (KG)',
+                  hintStyle: TextStyle(
+                    fontSize: 17,
+                    color: buttonTwoColor,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.monitor_weight,
+                    color: buttonTwoColor,
+                  ),
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 1,
                       color: Color(0xff746d8a),
                     ),
-                    prefixIcon: Icon(Icons.monitor_weight),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 1, color: Color(0xff746d8a))),
-                  )
+                  ),
+                ),
               ),
-        
+
               const SizedBox(
                 height: 30,
               ),
-        
+
               GestureDetector(
                 onTap: _calculateOnTap,
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 60,
                   decoration: BoxDecoration(
-                      color: const Color(0xff1A1F38),
-                      borderRadius: BorderRadius.circular(20)),
+                    color: appBarColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   child: const Center(
                     child: Text(
                       'CALCULATE',
@@ -241,28 +269,24 @@ class _BMICalculatorState extends State<BMICalculator> {
     );
   }
 
-  _femaleButtonOnTap(){
-    femaleContainerColor = const Color(0xff30354b);
-    maleContainerColor = const Color(0xff1A1F38);
-    setState(() {  });
+  _femaleButtonOnTap() {
+    femaleContainerColor = buttonTwoColor.withOpacity(0.5);
+    maleContainerColor = appBarColor;
+    setState(() {});
   }
 
-  _maleButtonOnTap(){
-    maleContainerColor = const Color(0xff30354b);
-    femaleContainerColor = const Color(0xff1A1F38);
-    setState(() {  });
+  _maleButtonOnTap() {
+    maleContainerColor = buttonTwoColor.withOpacity(0.5);
+    femaleContainerColor = appBarColor;
+    setState(() {});
   }
 
-  _calculateOnTap(){
-
+  _calculateOnTap() {
     var ftString = ftController.text.toString();
     var inString = inController.text.toString();
     var wtString = wtController.text.toString();
 
-    if (ftString != '' &&
-        inString != '' &&
-        wtString != '') {
-
+    if (ftString != '' && inString != '' && wtString != '') {
       double feet = double.parse(ftString);
       double inch = double.parse(inString);
       double weight = double.parse(wtString);
@@ -270,9 +294,9 @@ class _BMICalculatorState extends State<BMICalculator> {
       double tInch = (feet * 12) + inch;
       double tMeter = tInch * 0.0254;
 
-      double bmi  = weight / (tMeter * tMeter);
+      double bmi = weight / (tMeter * tMeter);
 
-      if (bmi<18.5){
+      if (bmi < 18.5) {
         bgColor = Colors.blue;
         bmiMessage = 'Underweight';
       } else if (18.5 < bmi && bmi < 24.9) {
@@ -284,7 +308,7 @@ class _BMICalculatorState extends State<BMICalculator> {
       } else if (30 < bmi && bmi < 39.9) {
         bgColor = Colors.red;
         bmiMessage = 'Obese';
-      } else if (30 < bmi ) {
+      } else if (30 < bmi) {
         bgColor = Colors.red;
         bmiMessage = 'Extremely Obese';
       }
@@ -292,14 +316,21 @@ class _BMICalculatorState extends State<BMICalculator> {
       setState(() {
         result = bmi.toStringAsFixed(2);
       });
-
     } else {
-
       bgColor = Colors.red;
       setState(() {
         result = 'ERROR';
       });
     }
-    Navigator.push(context, MaterialPageRoute(builder: (context) => BMIResult(bmiResult: result, bgColorResult: bgColor, bmiMessageResult: bmiMessage,)));
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BMIResult(
+          bmiResult: result,
+          bgColorResult: bgColor,
+          bmiMessageResult: bmiMessage,
+        ),
+      ),
+    );
   }
 }
