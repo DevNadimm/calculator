@@ -16,7 +16,7 @@ class _CalculatorState extends State<Calculator> {
   double _firstNum = 0;
   double _secondNum = 0;
 
-  void _buttonPressed(String buttonText) {
+  void _buttonTap(String buttonText) {
     setState(() {
       if (buttonText == 'AC') {
         _display = '';
@@ -121,145 +121,145 @@ class _CalculatorState extends State<Calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Button1(
+                      Button(
                         label: 'AC',
                         txColor: Colors.white,
                         bgColor: buttonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '%',
                         txColor: Colors.white,
                         bgColor: buttonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: 'C',
                         txColor: Colors.white,
                         bgColor: buttonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '÷',
                         txColor: Colors.white,
                         bgColor: buttonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Button1(
+                      Button(
                         label: '1',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '2',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '3',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '×',
                         txColor: Colors.white,
                         bgColor: buttonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Button1(
+                      Button(
                         label: '4',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '5',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '6',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '−',
                         txColor: Colors.white,
                         bgColor: buttonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Button1(
+                      Button(
                         label: '7',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '8',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '9',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '+',
                         txColor: Colors.white,
                         bgColor: buttonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Button1(
+                      Button(
                         label: '00',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '0',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '.',
                         txColor: Colors.white,
                         bgColor: buttonOneColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
-                      Button1(
+                      Button(
                         label: '=',
                         txColor: Colors.black,
                         bgColor: equalButtonTwoColor,
-                        onPressed: _buttonPressed,
+                        onTap: _buttonTap,
                       ),
                     ],
                   ),
@@ -273,30 +273,30 @@ class _CalculatorState extends State<Calculator> {
   }
 }
 
-class Button1 extends StatelessWidget {
+class Button extends StatelessWidget {
   final String label;
   final Color txColor;
   final Color bgColor;
-  final Function(String) onPressed;
+  final Function(String) onTap;
 
-  const Button1(
+  const Button(
       {super.key,
       required this.label,
       required this.txColor,
       required this.bgColor,
-      required this.onPressed});
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Material(
       elevation: 3,
-      color: const Color(0xff0a0c15),
       borderRadius: BorderRadius.circular(50),
-      child: CircleAvatar(
-        backgroundColor: bgColor,
-        radius: 36,
-        child: TextButton(
-          onPressed: () => onPressed(label),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(50),
+        onTap: () => onTap(label),
+        child: CircleAvatar(
+          backgroundColor: bgColor,
+          radius: 35,
           child: Text(
             label,
             style: TextStyle(
